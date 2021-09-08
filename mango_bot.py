@@ -31,7 +31,8 @@ async def ping(ctx):
     
 @client.command()
 async def HSpecial(ctx):
-    message = ['\"Genshin at 10\"', '\"So as I was saying... \"', '\"I\'ll remember this\"', '\" Wait I forgot what I was saying\"']
+    message = ['\"Genshin at 10\"', '\"So as I was saying... \"', '\"I\'ll remember this\"', '\" Wait I forgot what I was saying\"', '\"Butter me up\"' 
+                    , '\"That\'s not true...\"', '\"I never said that\"']
     quote_Houston = '\n \t  -Houston \'Bee\' Mak'
     embedVar = discord.Embed(description=str(random.choice(message) + quote_Houston))
     await ctx.send(embed=embedVar)
