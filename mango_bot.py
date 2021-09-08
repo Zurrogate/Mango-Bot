@@ -1,5 +1,6 @@
 import time
 from typing import List
+import random
 import discord
 from discord import channel
 from youtube_dl import YoutubeDL
@@ -28,6 +29,14 @@ async def ping(ctx):
     embedVar = discord.Embed(description=str(round(client.latency * 1000)) +'ms')
     await ctx.send(embed=embedVar)
     
+@client.command()
+async def HSpecial(ctx):
+    message = ['\"Genshin at 10\"', '\"So as I was saying... \"', '\"I\'ll remember this\"', '\" Wait I forgot what I was saying\"']
+    quote_Houston = '\n \t  -Houston \'Bee\' Mak'
+    embedVar = discord.Embed(description=str(random.choice(message) + quote_Houston))
+    await ctx.send(embed=embedVar)
+
+
 @client.command()
 async def smoothie(ctx):
     if (ctx.message.author.id == BRYAN or ctx.message.author.id == HOUSTON or ctx.message.author.id == OLIN):
@@ -124,5 +133,5 @@ async def leave(ctx):
     player = []
 
 
-client.run('ODEzNTUyNDU2Nzg0MDE5NDc3.YDQ9xA.mBCjeqP_oaefRg1B3bZFMoYGBhk')
+client.run('ODEzNTUyNDU2Nzg0MDE5NDc3.YDQ9xA.LHKaDhBqaeA4Ux4btZX6oxM2Kek')
 
