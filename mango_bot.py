@@ -1,4 +1,5 @@
 import time
+import os
 from typing import List
 import random
 import discord
@@ -14,16 +15,20 @@ BRYAN = 196483088321085441
 HOUSTON = 258323084145065984
 OLIN = 199640591951331328
 
+
 client = commands.Bot(command_prefix = '-')
 balances = {}
 player = []
 queuePos = 0
+bottoken = ''
+
+with open('bottoken') as f:
+    BOTTOKEN = f.read()
 
 @client.event
 async def on_ready():
     print('Bot is ready.')
-
-
+    
 @client.command()
 async def ping(ctx):
     embedVar = discord.Embed(description=str(round(client.latency * 1000)) +'ms')
@@ -32,8 +37,10 @@ async def ping(ctx):
 @client.command()
 async def HSpecial(ctx):
     message = ['\"Genshin at 10\"', '\"So as I was saying... \"', '\"I\'ll remember this\"', '\" Wait I forgot what I was saying\"', '\"Butter me up\"' 
-                    , '\"That\'s not true...\"', '\"I never said that\"']
-    quote_Houston = '\n \t  -Houston \'Bee\' Mak'
+                    , '\"That\'s not true...\"', '\"I never said that\"', '\"I\'m going to sleep\"', '\"Uhhhhh...\"\t\**Disconnects*\*' , '\"I want to be dominated\"' 
+                    , '\"Let\'s Cheat guys" ']
+    quote_Houston = '\n\t-Houston \'Bee\' Mak'
+    #embedVar = discord.Embed(description=str(message[len(message) - 1] + quote_Houston))
     embedVar = discord.Embed(description=str(random.choice(message) + quote_Houston))
     await ctx.send(embed=embedVar)
 
@@ -134,5 +141,5 @@ async def leave(ctx):
     player = []
 
 
-client.run('ODEzNTUyNDU2Nzg0MDE5NDc3.YDQ9xA.LHKaDhBqaeA4Ux4btZX6oxM2Kek')
+client.run(BOTTOKEN)
 
